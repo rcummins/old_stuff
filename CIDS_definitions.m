@@ -161,6 +161,10 @@ temp_aq = 103;
 d18O_min_PDB_aq = 104;
 d18O_min_SMOW_aq = 105;
 d18O_water_aq = 106;
+STF_slope = 107;
+STF_int = 108;
+D47_RF = 109;
+D47_RF_AC = 110;
 
 % define the locations of voltages copied from isodat results
 % S{samp_counter}{aq_counter}(:,#)
