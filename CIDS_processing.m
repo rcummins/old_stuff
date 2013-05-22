@@ -41,7 +41,7 @@ S = cell(total_samples,1);
 
 % load the heated gas line and standard residuals with corresponding dates
 fileID = fopen('HG_residuals.csv');
-HG_residuals = textscan(fileID, '%s %s %s %s %s %s %s %s %s %s','delimiter',',');
+HG_residuals = textscan(fileID, '%s %s %s %s %s %s %s %s %s %s %s %s','delimiter',',');
 fclose(fileID);
 fd = str2double(HG_residuals{1}(2:end));
 fm = str2double(HG_residuals{2}(2:end));
@@ -50,9 +50,11 @@ ld = str2double(HG_residuals{4}(2:end));
 lm = str2double(HG_residuals{5}(2:end));
 ly = str2double(HG_residuals{6}(2:end));
 mach      = HG_residuals{7}(2:end);
-slope     = str2double(HG_residuals{8}(2:end));
-intercept = str2double(HG_residuals{9}(2:end));
+slope_HG     = str2double(HG_residuals{8}(2:end));
+intercept_HG = str2double(HG_residuals{9}(2:end));
 residual  = str2double(HG_residuals{10}(2:end));
+slope_STF = str2double(HG_residuals{11}(2:end));
+intercept_STF = str2double(HG_residuals{12}(2:end));
 
 for CIDS = 1:number_of_CIDS
 
@@ -89,7 +91,7 @@ number_of_samples = 0;
     for j = 1:9
         S{i}{j} = zeros(7,38);
     end
-    S{i}{10} = zeros(9,106);
+    S{i}{10} = zeros(9,110);
     S{i}{11} = cell(1,4);
     S{i}{12} = zeros(1,35);
   end
@@ -308,27 +310,34 @@ for i = 1:total_samples
     S{i}{10}(:,D48_raw) = S{i}{10}(:,D_48) - 2.*S{i}{10}(:,D_46);
     S{i}{10}(:,D49_raw) = S{i}{10}(:,D_49) - 2.*S{i}{10}(:,D_46) - S{i}{10}(:,D_45);
     
-    % look up the heated gas line and std residuals based on the date
+    % look up HG line and secondary transfer function based on the date
     sd = S{i}{10}(1,day);
     sm = S{i}{10}(1,month);
     sy = S{i}{10}(1,year);
     m  = S{i}{11}(mach_id);
     for j = 1:size(fd,1)
         if (fd(j)<=sd&&sd<=ld(j)&&fm(j)<=sm&&sm<=lm(j)&&fy(j)<=sy&&sy<=ly(j)&&strcmp(m,mach(j)))
-            S{i}{10}(:,HG_slope) = slope(j);
-            S{i}{10}(:,HG_int)   = intercept(j);
-            S{i}{10}(:,resid)    = residual(j);
+            S{i}{10}(:,HG_slope) = slope_HG(j);
+            S{i}{10}(:,HG_int)   = intercept_HG(j);
+            %S{i}{10}(:,resid)    = residual(j);
+            S{i}{10}(:,STF_slope) = slope_STF(j);
+            S{i}{10}(:,STF_int)   = intercept_STF(j);
         end
     end
     
-    % correct D47 for HG line, stretching, acid digestion, and std residuals
+    % correct D47 for HG line, and stretching
     S{i}{10}(:,D47_HG) = S{i}{10}(:,D47_raw)-(S{i}{10}(:,d47).*S{i}{10}(:,HG_slope)+S{i}{10}(:,HG_int));
     S{i}{10}(:,D47_stretch) = S{i}{10}(:,D47_HG).*-0.8453./S{i}{10}(:,HG_int);
-    S{i}{10}(:,D47_acid) = S{i}{10}(:,D47_stretch) + 0.08;
-    S{i}{10}(:,D47_aq) = S{i}{10}(:,D47_acid) - S{i}{10}(:,resid);
+    %S{i}{10}(:,D47_acid) = S{i}{10}(:,D47_stretch) + 0.08;
+    %S{i}{10}(:,D47_aq) = S{i}{10}(:,D47_acid) - S{i}{10}(:,resid);
     
-    % calculate temperature
-    S{i}{10}(:,temp_aq) = (59200.*(S{i}{10}(:,D47_aq)+0.02).^-1).^0.5-273.15;
+    % convert D47 to absolute reference frame, then correct for acid
+    S{i}{10}(:,D47_RF) = S{i}{10}(:,D47_stretch).*S{i}{10}(:,STF_slope)+S{i}{10}(:,STF_int);
+    S{i}{10}(:,D47_RF_AC) = S{i}{10}(:,D47_RF) + 0.092;
+    
+    % calculate temperature using equation 9 from Dennis et al. (2011)
+    %S{i}{10}(:,temp_aq) = (59200.*(S{i}{10}(:,D47_aq)+0.02).^-1).^0.5-273.15;
+    S{i}{10}(:,temp_aq) = (63600./(S{i}{10}(:,D47_RF_AC)+0.0047)).^0.5-273.15;
     
     % calculate the d18O_mineral_SMOW from the d18O_gas_SMOW
     S{i}{10}(:,d18O_min_PDB_aq) = ((((S{i}{10}(:,d18O_SMOW)-30.86)./1.03086)+1000)./1.00821)-1000;
@@ -410,15 +419,15 @@ for i = 1:size(Samples,1)
     Samples{i}{12}(d47_flat)  = mean(Samples{i}{10}(:,d47));
     Samples{i}{12}(sigma_d47) =  std(Samples{i}{10}(:,d47));
     Samples{i}{12}(sterr_D47) =  std(Samples{i}{10}(:,d47))/sqrt(Samples{i}{12}(aqs));
-    Samples{i}{12}(D47)       = mean(Samples{i}{10}(:,D47_aq));
-    Samples{i}{12}(sigma_D47) =  std(Samples{i}{10}(:,D47_aq));
+    Samples{i}{12}(D47)       = mean(Samples{i}{10}(:,D47_RF_AC));
+    Samples{i}{12}(sigma_D47) =  std(Samples{i}{10}(:,D47_RF_AC));
     Samples{i}{12}(d48_flat)  = mean(Samples{i}{10}(:,d48));
     Samples{i}{12}(D48_flat)  = mean(Samples{i}{10}(:,D48_raw));
     
     % calculate the temp and d18O_water and sigmas from the mean values
-    Samples{i}{12}(temp) = (59200*(Samples{i}{12}(D47)+0.02)^-1)^0.5-273.15;
-    Samples{i}{12}(sigma_temp) = ((59200/(Samples{i}{12}(D47)+0.02))^0.5)...
-        *0.5/(Samples{i}{12}(D47)+0.02)*Samples{i}{12}(sigma_D47);
+    Samples{i}{12}(temp) = (63600*(Samples{i}{12}(D47)+0.0047)^-1)^0.5-273.15;
+    Samples{i}{12}(sigma_temp) = ((63600/(Samples{i}{12}(D47)+0.0047))^0.5)...
+        *0.5/(Samples{i}{12}(D47)+0.0047)*Samples{i}{12}(sigma_D47);
     Samples{i}{12}(sterr_temp) = Samples{i}{12}(sigma_temp)/sqrt(Samples{i}{12}(aqs));
     Samples{i}{12}(d18O_water) = ((1/exp((18030/(Samples{i}{12}(temp)...
         +273.15)-32.42)/1000))*(Samples{i}{12}(d18O_min_SMOW)+1000))-1000;
