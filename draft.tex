@@ -1,22 +1,12 @@
-\documentclass{article}
-\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\documentclass[preprint, authoryear]{elsarticle}
 \usepackage{amsmath}
-\pagestyle{empty}
 \usepackage{graphicx}
 \usepackage{rotating}
 \usepackage{multirow}
 \usepackage{enumerate}
 \usepackage{wasysym}
-\usepackage{lineno}
 \usepackage{natbib}
-\bibpunct{(}{)}{;}{a}{}{,}
-
-\newenvironment{my_enumerate}{
-\begin{enumerate}
-  \setlength{\itemsep}{5pt}
-  \setlength{\parskip}{0pt}
-  \setlength{\parsep}{0pt}}{\end{enumerate}
-}
+\usepackage{lineno}
 
 \newcommand{\deltao}{$\delta^{18}$}
 \newcommand{\deltac}{$\delta^{13}$}
@@ -24,29 +14,39 @@
 
 \begin{document}
 
-\subsection*{Carbonate clumped isotope constraints on Silurian ocean temperature and \deltao O}
+\begin{frontmatter}
 
-\noindent Cummins, Renata C.$^1$; Finnegan, Seth$^2$; Fike, David A.$^3$; Eiler, John M.$^1$; Fischer, Woodward W.$^1$
+\title{Carbonate clumped isotope constraints on Silurian ocean temperature and \deltao O}
 
-\vspace{10pt}
+\author[caltech]{Renata C. Cummins\corref{cor1}}
+\ead{renatacummins@gmail.com}
 
-\footnotesize
+\author[berkley]{Seth Finnegan}
 
-\noindent $^1$California Institute of Technology, Geological and Planetary Sciences, Pasadena, CA 91125
+\author[washU]{David A. Fike}
 
-\noindent $^2$Department of Integrative Biology, University of California, 1005 Valley Life Sciences Bldg \#3140, Berkeley, CA 94720
+\author[caltech]{John M. Eiler}
 
-\noindent $^3$Department of Earth and Planetary Sciences, Washington University, St. Louis, Missouri 63130
+\author[caltech]{Woodward W. Fischer}
 
-\normalsize
+\cortext[cor1]{Corresponding author}
 
-\linenumbers
+\address[caltech]{California Institute of Technology, Geological and Planetary Sciences, MC 100-23, Pasadena, CA 91125}
 
-\vspace{0.7cm} \noindent \large \textbf{Abstract} \normalsize
+\address[berkley]{Department of Integrative Biology, University of California, 1005 Valley Life Sciences Bldg \#3140, Berkeley, CA 94720}
 
+\address[washU]{Department of Earth and Planetary Sciences, Washington University, St. Louis, Missouri 63130}
+
+
+\begin{abstract}
 Much of what we know about the history of Earth's climate derives from the geologic record of carbonates. The oxygen isotopic composition (\deltao O) of carbonates has been widely used as a proxy for past ocean temperatures, but application of this proxy to deep geologic time is complicated by diagenetic alteration and uncertainties in the \deltao O of seawater in the past. Carbonate clumped isotope thermometry provides an independent estimate of the temperature of the water from which a carbonate precipitated, allowing direct calculation of the \deltao O of the water as well. The clumped isotope composition of carbonates is also highly sensitive to diagenetic alteration, enabling identification of the most pristine samples from within a sample set. These highly pristine samples ultimately provide a more reliable record of paleoclimate.
 
 We tested the ability of carbonate clumped isotopes to constrain paleoclimate by measuring the clumped isotope composition of apparently well-preserved calcitic fossils from several Silurian-age (ca. 427 Ma) stratigraphic sections on the island of Gotland, Sweden. Variability in clumped isotope temperatures suggests differential preservation, complicating a resolved temperature history through these sections. Micro-scale studies of calcite fabric and trace metal composition using electron backscatter diffraction and electron microprobe analysis point to a subset of relatively pristine samples, which indicate that Silurian tropical oceans were likely warm ($30\pm 2$\degrees C) and similar in oxygen isotopic composition to a modern ice-free world (\deltao O$_{\text{SMOW}}$ of $-1.7\pm 0.5\permil$). This result joins the growing body of evidence that suggests the $\delta^{18}$O of Earth's surface waters has remained broadly constant through time. 
+\end{abstract}
+
+\end{frontmatter}
+
+\linenumbers
 
 \section{Introduction}
 
@@ -171,98 +171,15 @@ The results from this study join those of previous clumped isotope studies in im
 
 We used clumped isotopes to constrain the temperature and \deltao O of Silurian oceans because they provide a temperature that is independent of the \deltao O of the water from which the carbonate precipitated. Samples were collected from relatively well-preserved sections on the island of Gotland, Sweden. By sampling well-preserved, fossil-rich rocks that record a climate phenomenon thought to be associated with changing seawater temperatures, we hoped to test the limit of resolution of clumped isotopes. We were not able to resolve a change in temperature through the section, due to the variable preservation quality of the samples. Trace metal analysis was not able to detect variations in preservation among brachiopods, despite a range in brachiopod temperatures, suggesting that clumped isotopes are a more sensitive indicator of diagenetic alteration than trace metal compositions. Micro-scale analysis of calcite fabrics, comparisons between brachiopods and micrite, and the positive relationship between temperature and \deltao O of water calculated from the samples all support the hypothesis that the lowest-temperature samples are the most pristine. Based on the most pristine sample in our dataset, we estimate that tropical Silurian oceans had a temperature of  $30\pm 2$\degrees C and a \deltao O of $-1.7\pm 0.5\permil$. Our results, along with those from other clumped isotope studies of paleoenvironment, suggest that the \deltao O of seawater has remained broadly constant over time, in spite of a large potential for change through exchange of oxygen isotopes with crustal materials. 
 
-\vspace{0.7cm} \noindent \large \textbf{Acknowledgements} \normalsize
+\section*{Acknowledgements}
 
 We acknowledge Nami Kitchen, Kristin Bergmann, Daniel Stolper, and the rest of the Eiler lab for help with the clumped isotope measurements. We thank Chi Ma for his assistance with the SEM and the E-probe, and Joel Hurowitz for allowing us to use his ICP-AES. We also thank Mark Garcia and David Mann for their help with sample processing. This work was supported by NSF grant EAR-1053523 and the Agouron Institute. 
 
 \newpage
 
-\bibliographystyle{garynat}
+\section*{References}
+\bibliographystyle{my-harv}
 \bibliography{draft}
-
-\begin{sidewaystable}[htbp]
-\centering
-\small
-\begin{tabular}{ | l | c | c | c | c | c | c | c | c | c | c | }
-\multirow{2}{*}{Sample} & Sample & Number of & \deltac C & \deltao O & $\Delta_{47}$ & Temperature & \deltao O water & [Fe] & [Mn] & [Sr] \\
- & location & replicates & ($\permil$ PDB) & ($\permil$ PDB) & ($\permil$) & (\degrees C) & ($\permil$ SMOW) & (ppm) & (ppm) & (ppm)\\ \hline
-G1 -0.3 to -1.0 M1 & 1 & 3 & 2.575 & -5.277 & 0.589 & 38.7 $\pm$ 1.6 & -0.294 $\pm$ 0.30 & 4905 $\pm$ 29 & 327 $\pm$ 3 & 238 $\pm$ 2 \\
-G1 -0.3 to -1.0 R1 & 1 & 3 & 2.319 & -5.320 & 0.596 & 36.8 $\pm$ 1.8 & -0.696 $\pm$ 0.33 & 337 $\pm$ 2 & 159 $\pm$ 1 & 332 $\pm$ 2 \\
-G1 -1.2 to -0.8 B1 & 1 & 1 & 2.019 & -5.523 & 0.565 & 45.0 $\pm$ 2.7 & 0.602 $\pm$ 0.49 & 182 $\pm$ 5 & 66 $\pm$ 2 & 1351 $\pm$ 33 \\
-G1 -3.2 to -3.0 R1 & 1 & 1 & 2.397 & -5.851 & 0.588 & 38.9 $\pm$ 3.1 & -0.833 $\pm$ 0.57 & 1330 $\pm$ 15 & 437 $\pm$ 3 & 428 $\pm$ 3 \\
-G1 -3.4 to -3.2 B2 & 1 & 1 & 2.023 & -5.597 & 0.591 & 38.2 $\pm$ 1.5 & -0.713 $\pm$ 0.27 & 177 $\pm$ 3 & 53 $\pm$ 1 & 1507 $\pm$ 9 \\
-G1 2.2 R1 & 1 & 1 & 3.734 & -5.190 & 0.587 & 39.1 $\pm$ 1.4 & -0.126 $\pm$ 0.25 & 172 $\pm$ 4 & 168 $\pm$ 1 & 431 $\pm$ 5 \\
-G2 -0.2 to 0.0 R1 & 2 & 1 & 2.315 & -5.233 & 0.584 & 39.8 $\pm$ 2.5 & -0.046 $\pm$ 0.47 & 379 $\pm$ 3 & 153 $\pm$ 1 & 414 $\pm$ 5 \\
-G2 -0.5 to -0.25 R1 & 2 & 1 & 2.208 & -5.351 & 0.592 & 37.9 $\pm$ 2.9 & -0.514 $\pm$ 0.53 & 887 $\pm$ 14 & 157 $\pm$ 1 & 600 $\pm$ 2 \\
-G2 0.0 to 0.2 B1 & 2 & 1 & 2.399 & -5.692 & 0.584 & 40.0 $\pm$ 3.7 & -0.462 $\pm$ 0.68 & 302 $\pm$ 9 & 70 $\pm$ 1 & 1289 $\pm$ 23 \\
-G2 0.5 to 0.6 B1 & 2 & 1 & 3.178 & -5.123 & 0.572 & 43.0 $\pm$ 2.8 & 0.639 $\pm$ 0.51 & 46 $\pm$ 3 & 64 $\pm$ 0.4 & 1447 $\pm$ 9 \\
-G2 0.5 to 0.6 B2 & 2 & 1 & 2.925 & -5.347 & 0.602 & 35.4 $\pm$ 1.2 & -0.990 $\pm$ 0.23 & 38 $\pm$ 2 & 27 $\pm$ 1 & 1372 $\pm$ 3 \\
-G3 0.0 B1 & 3 & 1 & 2.248 & -5.876 & 0.573 & 42.7 $\pm$ 2.1 & -0.166 $\pm$ 0.39 & 122 $\pm$ 1 & 48 $\pm$ 0.3 & 1127 $\pm$ 8 \\
-G3 LVF B1 & 3 & 2 & 1.769 & -6.402 & 0.598 & 36.4 $\pm$ 1.9 & -1.850 $\pm$ 0.38 & 124 $\pm$ 2 & 65 $\pm$ 0.4 & 1493 $\pm$ 3 \\
-G3 LVF B1 cement & 3 & 2 & 2.613 & -6.395 & 0.583 & 40.1 $\pm$ 2.9 & -1.155 $\pm$ 0.54 & 953 $\pm$ 9 & 663 $\pm$ 8 & 259 $\pm$ 4 \\
-G3 LVF B1 micrite & 3 & 3 & 1.768 & -5.998 & 0.581 & 40.7 $\pm$ 1.5 & -0.647 $\pm$ 0.29 & 5091 $\pm$ 14 & 457 $\pm$ 2 & 226 $\pm$ 3 \\
-G3 LVF B5 & 3 & 1 & 1.792 & -5.453 & 0.610 & 33.4 $\pm$ 1.6 & -1.479 $\pm$ 0.30 &  $\pm$  &  $\pm$  &  $\pm$  \\
-G3 LVF B5 micrite & 3 & 2 & 1.628 & -5.723 & 0.586 & 39.4 $\pm$ 2.7 & -0.614 $\pm$ 0.49 & 4153 $\pm$ 22 & 449 $\pm$ 3 & 170 $\pm$ 2 \\
-G3 LVF R1 & 3 & 2 & 2.075 & -5.440 & 0.577 & 41.8 $\pm$ 2.7 & 0.112 $\pm$ 0.48 & 724 $\pm$ 7 & 161 $\pm$ 2 & 435 $\pm$ 4 \\
-G3 LVF R2 & 3 & 2 & 5.942 & -5.368 & 0.595 & 37.2 $\pm$ 2.0 & -0.658 $\pm$ 0.37 & 69 $\pm$ 3 & 211 $\pm$ 1 & 309 $\pm$ 5 \\
-G4 2.0 to 3.0 B1 & 4 & 1 & 4.223 & -6.092 & 0.580 & 40.9 $\pm$ 2.8 & -0.712 $\pm$ 0.51 &  nd  &  nd  &  nd  \\
-G4 2.0 to 3.0 bryozoan1 & 4 & 1 & 4.582 & -5.604 & 0.589 & 38.6 $\pm$ 3.8 & -0.635 $\pm$ 0.71 &  nd  &  nd  &  nd  \\
-G4 2.0 to 3.0 crinoid1 & 4 & 1 & 5.033 & -6.216 & 0.564 & 45.2 $\pm$ 3.3 & -0.050 $\pm$ 0.58 &  nd  &  nd  &  nd  \\
-G5 1.6 to 2.2 gastropod1 & 5 & 1 & 5.589 & -6.210 & 0.598 & 36.4 $\pm$ 2.4 & -1.667 $\pm$ 0.45 &  nd  &  nd  &  nd  \\
-G5 1.6 to 2.2 ostracod1 & 5 & 1 & 4.425 & -4.839 & 0.585 & 39.6 $\pm$ 3.3 & 0.309 $\pm$ 0.60 &  nd  &  nd  &  nd  \\
-G6 B234 & 6 & 1 & 4.692 & -5.152 & 0.591 & 38.1 $\pm$ 1.4 & -0.286 $\pm$ 0.26 &  nd  &  nd  &  nd  \\
-G6 crinoid1 & 6 & 1 & 5.457 & -6.380 & 0.535 & 53.3 $\pm$ 4.0 & 1.187 $\pm$ 0.68 &  nd  &  nd  &  nd  \\
-G7 9.0 R1 & 7 & 2 & 5.336 & -5.495 & 0.575 & 42.2 $\pm$ 2.5 & 0.135 $\pm$ 0.45 & 121 $\pm$ 3 & 192 $\pm$ 1 & 86 $\pm$ 6 \\
-G7 9.0 R2 & 7 & 1 & 5.173 & -5.698 & 0.551 & 48.9 $\pm$ 2.6 & 1.120 $\pm$ 0.45 &  nd  &  nd  &  nd  \\
-G8 0.0 to 1.2 R1 & 8 & 1 & -0.507 & -5.208 & 0.593 & 37.7 $\pm$ 2.7 & -0.419 $\pm$ 0.50 & 187 $\pm$ 4 & 78 $\pm$ 1 & 339 $\pm$ 3 \\
-G8 1.2 to 2.0 M1 & 8 & 1 & -0.768 & -7.093 & 0.561 & 46.0 $\pm$ 2.2 & -0.801 $\pm$ 0.39 & 3635 $\pm$ 13 & 248 $\pm$ 1 & 24 $\pm$ 6 \\
-G8 1.2 to 2.0 R1 & 8 & 2 & -0.082 & -5.022 & 0.553 & 48.2 $\pm$ 2.7 & 1.676 $\pm$ 0.47 & 128 $\pm$ 4 & 78 $\pm$ 1 & 191 $\pm$ 3 \\
-\end{tabular} 
-\caption{Isotopic composition, clumped isotope temperature, calculated \deltao O of water and bulk trace metal concentrations of all the samples analyzed in this study. Errors are standard error of the mean for all acqusitions of that sample. $\text{nd}=\text{no data.}$}
-\label{results}
-\end{sidewaystable}
-
-\begin{sidewaystable}[htbp]
-\centering
-\small
-\begin{tabular}{ | l | c | c | c | c | c | c | c | c | c | c | }
-\multirow{2}{*}{Sample} & Sample & Number of & \deltac C & \deltao O & $\Delta_{47}$ & Temperature & \deltao O water & [Fe] & [Mn] & [Sr] \\
- & location & replicates & ($\permil$ PDB) & ($\permil$ PDB) & ($\permil$) & (\degrees C) & ($\permil$ SMOW) & (ppm) & (ppm) & (ppm)\\ \hline
-G11 0.0 to 0.2 R1 & 11 & 1 & 3.164 & -4.847 & 0.599 & 36.1 $\pm$ 2.4 & -0.352 $\pm$ 0.46 & 116 $\pm$ 4 & 140 $\pm$ 1 & 769 $\pm$ 4 \\
-G11 0.2 to 0.4 B2 & 11 & 1 & 2.836 & -5.360 & 0.587 & 39.2 $\pm$ 3.6 & -0.289 $\pm$ 0.67 & 252 $\pm$ 6 & 59 $\pm$ 1 & 1424 $\pm$ 15 \\
-G11 0.2 to 0.4 B6 & 11 & 1 & 2.454 & -6.146 & 0.605 & 34.6 $\pm$ 2.3 & -1.939 $\pm$ 0.43 & 89 $\pm$ 2 & 107 $\pm$ 1 & 1450 $\pm$ 8 \\
-G11 0.2 to 0.4 R1 & 11 & 1 & 3.169 & -5.495 & 0.569 & 43.9 $\pm$ 2.2 & 0.440 $\pm$ 0.40 & 487 $\pm$ 7 & 346 $\pm$ 2 & 481 $\pm$ 4 \\
-G11 0.4 to 0.6 B1 & 11 & 1 & 2.766 & -5.439 & 0.596 & 36.9 $\pm$ 1.6 & -0.788 $\pm$ 0.30 & 58 $\pm$ 1 & 40 $\pm$ 0.2 & 1476 $\pm$ 4 \\
-G11 0.6 B1 & 11 & 1 & 2.927 & -5.269 & 0.588 & 38.9 $\pm$ 1.8 & -0.242 $\pm$ 0.33 & 59 $\pm$ 2 & 59 $\pm$ 1 & 1627 $\pm$ 11 \\
-G11 0.6 to 0.8 M1 & 11 & 1 & 2.431 & -6.468 & 0.610 & 33.5 $\pm$ 2.0 & -2.472 $\pm$ 0.39 & 20948 $\pm$ 90 & 288 $\pm$ 7 & 79 $\pm$ 3 \\
-G11 0.6 to 0.8 R1 & 11 & 1 & 3.447 & -4.886 & 0.596 & 36.8 $\pm$ 3.5 & -0.258 $\pm$ 0.65 & 75 $\pm$ 4 & 68 $\pm$ 1 & 503 $\pm$ 6 \\
-G12 B3 & 12 & 1 & 2.803 & -5.757 & 0.558 & 46.9 $\pm$ 1.8 & 0.707 $\pm$ 0.32 &  nd  &  nd  &  nd  \\
-G12 B4 & 12 & 1 & 4.397 & -5.179 & 0.581 & 40.8 $\pm$ 3.7 & 0.191 $\pm$ 0.67 & 64 $\pm$ 3 & 41 $\pm$ 1 & 1358 $\pm$ 4 \\
-G12 R1 & 12 & 3 & 2.381 & -5.221 & 0.604 & 35.0 $\pm$ 1.6 & -0.935 $\pm$ 0.31 & 601 $\pm$ 6 & 124 $\pm$ 1 & 412 $\pm$ 4 \\
-G12 R1 micrite & 12 & 1 & 2.102 & -5.048 & 0.568 & 44.2 $\pm$ 3.8 & 0.939 $\pm$ 0.69 &  nd  &  nd  &  nd  \\
-G12 R2 & 12 & 1 & 2.043 & -5.611 & 0.582 & 40.6 $\pm$ 2.8 & -0.287 $\pm$ 0.52 & 1474 $\pm$ 18 & 417 $\pm$ 2 & 342 $\pm$ 2 \\
-G13 1.0 to 2.0 R1 & 13 & 1 & -0.568 & -4.974 & 0.582 & 40.4 $\pm$ 4.4 & 0.320 $\pm$ 0.81 & 26 $\pm$ 4 & 107 $\pm$ 1 & 200 $\pm$ 3 \\
-G13 10.5 to 10.8 B1 & 13 & 1 & -0.598 & -4.986 & 0.626 & 29.6 $\pm$ 2.4 & -1.741 $\pm$ 0.48 & 32 $\pm$ 5 & 16 $\pm$ 2 & 1372 $\pm$ 109 \\
-G13 10.5 to 10.8 B1 leftovers & 13 & 1 & -0.722 & -5.207 & 0.579 & 41.3 $\pm$ 4.4 & 0.251 $\pm$ 0.81 &  nd  &  nd  &  nd  \\
-G13 10.5 to 10.8 M1 & 13 & 1 & -1.496 & -6.298 & 0.547 & 50.0 $\pm$ 2.7 & 0.703 $\pm$ 0.46 & 3487 $\pm$ 7 & 277 $\pm$ 1 & 31 $\pm$ 4 \\
-G13 10.5 to 10.8 R1 tip & 13 & 2 & -0.564 & -4.810 & 0.594 & 37.2 $\pm$ 2.0 & -0.097 $\pm$ 0.37 &  nd  &  nd  &  nd  \\
-G13 10.5 to 10.8 R1 top & 13 & 2 & -1.044 & -5.829 & 0.583 & 40.3 $\pm$ 1.5 & -0.557 $\pm$ 0.28 & 571 $\pm$ 65 & 193 $\pm$ 13 & 232 $\pm$ 15 \\
-G13 31.4 to 32.4 B1 & 13 & 3 & -0.316 & -5.082 & 0.592 & 37.9 $\pm$ 1.8 & -0.243 $\pm$ 0.34 & 141 $\pm$ 3 & 27 $\pm$ 0.3 & 1436 $\pm$ 11 \\
-G13 31.4 to 32.4 M1 & 13 & 1 & -0.778 & -5.965 & 0.570 & 43.5 $\pm$ 2.6 & -0.109 $\pm$ 0.47 & 3671 $\pm$ 10 & 237 $\pm$ 1 & 42 $\pm$ 3 \\
-G13 31.4 to 32.4 R1 & 13 & 1 & -0.809 & -5.484 & 0.535 & 53.4 $\pm$ 4.0 & 2.103 $\pm$ 0.68 & 96 $\pm$ 7 & 143 $\pm$ 1 & 118 $\pm$ 6 \\
-G13 33.5 B1 bad & 13 & 1 & -0.556 & -5.253 & 0.576 & 42.1 $\pm$ 3.3 & 0.361 $\pm$ 0.61 & 107 $\pm$ 1 & 46 $\pm$ 0.3 & 1320 $\pm$ 5 \\
-G13 33.5 B1 leftovers & 13 & 1 & -0.191 & -5.338 & 0.575 & 42.4 $\pm$ 3.0 & 0.321 $\pm$ 0.54 & 19 $\pm$ 5 & 14 $\pm$ 2 & 983 $\pm$ 109 \\
-G13 33.5 B1 perfect & 13 & 1 & -0.159 & -5.407 & 0.596 & 36.9 $\pm$ 3.0 & -0.756 $\pm$ 0.56 &  nd  &  nd  &  nd  \\
-G13 35.6 to 36.0 B1 & 13 & 1 & -0.288 & -5.397 & 0.580 & 41.0 $\pm$ 1.9 & 0.011 $\pm$ 0.35 & 39 $\pm$ 1 & 14 $\pm$ 0.1 & 1657 $\pm$ 9 \\
-G13 5.0 to 6.0 B3 & 13 & 1 & -0.216 & -5.614 & 0.576 & 42.1 $\pm$ 3.5 & -0.001 $\pm$ 0.64 &  nd  &  nd  &  nd  \\
-G13 5.0 to 6.0 B3 cement & 13 & 1 & -0.909 & -7.169 & 0.564 & 45.3 $\pm$ 2.2 & -0.996 $\pm$ 0.39 &  nd  &  nd  &  nd  \\
-G13 6.5 to 7.5 M1 & 13 & 1 & -0.118 & -5.206 & 0.559 & 46.7 $\pm$ 3.9 & 1.229 $\pm$ 0.69 & 5708 $\pm$ 34 & 289 $\pm$ 3 & 0 $\pm$ 2 \\
-G13 6.5 to 7.5 R1 & 13 & 1 & 0.180 & -4.728 & 0.536 & 53.3 $\pm$ 2.4 & 2.847 $\pm$ 0.41 & 32 $\pm$ 2 & 80 $\pm$ 1 & 204 $\pm$ 6 \\
-G13 UF B1 & 13 & 3 & -0.347 & -5.416 & 0.598 & 36.4 $\pm$ 1.4 & -0.857 $\pm$ 0.28 & 27 $\pm$ 1 & 35 $\pm$ 0.5 & 1564 $\pm$ 7 \\
-G13 UF B1 cement & 13 & 2 & -0.868 & -7.730 & 0.578 & 41.4 $\pm$ 2.0 & -2.259 $\pm$ 0.37 & 234 $\pm$ 2 & 266 $\pm$ 2 & 100 $\pm$ 1 \\
-G13 UF B1 micrite & 13 & 2 & -1.024 & -6.330 & 0.543 & 51.1 $\pm$ 2.2 & 0.852 $\pm$ 0.38 & 1428 $\pm$ 6 & 251 $\pm$ 2 & 126 $\pm$ 2 \\
-\end{tabular} 
-\end{sidewaystable}
 
 \begin{figure}[p]
 \centering
