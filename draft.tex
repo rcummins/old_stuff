@@ -1,4 +1,4 @@
-\documentclass[preprint, authoryear]{elsarticle}
+\documentclass[5p, authoryear]{elsarticle}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{rotating}
@@ -7,6 +7,15 @@
 \usepackage{wasysym}
 \usepackage{natbib}
 \usepackage{lineno}
+\usepackage{dblfloatfix}
+
+\renewcommand{\topfraction}{0.99}
+\renewcommand\bottomfraction{.99}
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\floatpagefraction}{0.99}
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
 
 \newcommand{\deltao}{$\delta^{18}$}
 \newcommand{\deltac}{$\delta^{13}$}
@@ -46,8 +55,6 @@ We tested the ability of carbonate clumped isotopes to constrain paleoclimate by
 
 \end{frontmatter}
 
-\linenumbers
-
 \section{Introduction}
 
 Despite the importance of paleoclimate and more than half a century of investigations on the topic, the temperature history of Earth's oceans remains poorly constrained. The most widely-used proxy for past ocean temperatures is the carbonate-water oxygen isotope exchange thermometer, also known as the carbonate \deltao O thermometer, which was developed by Harold Urey in the 1940s \citep{Urey1947}. This carbonate \deltao O proxy has two significant sources of complications. First, as with many paleoenvironmental proxies, it is often difficult to distinguish the effects of diagenetic alteration from the primary environmental signature. Second, the measured \deltao O of carbonates depends not only on the temperature of the seawater from which the carbonates precipitated, but also on the \deltao O of the seawater. The \deltao O of seawater can be affected by several factors, including evaporation, mixing with freshwater, and changes in the size of continental glaciers, all of which are difficult to quantify in the geologic record. The 
@@ -67,7 +74,21 @@ The present study investigates the implications of diagenetic alteration for the
 
 Samples were collected from a section exposed on the island of Gotland, Sweden, that spans the latest Llandovery through the Wenlock in the Early Silurian (Figure \ref{map}). Ages of the formations and correlations between outcrops are constrained by conodont and graptolite biostratigraphy \citep{Jeppsson2006}. The section records shelf, carbonate platform and backreef lagoon sediments deposited on the margin of the Baltic basin, which was within 30$^{\circ}$ of the equator during the Silurian \citep{Torsvik1992}. 
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=140mm]{Fig_01-01.png}
+\caption{Geologic map of the northern half of the island of Gotland, Sweden, modified from \cite{Calner2004a}. Approximate sample locations are marked and labeled with location number, which corresponds to the sample locations in the supplementary table.}
+\label{map}
+\end{figure*}
+
 The oldest exposed strata on Gotland are the Lower Visby Beds, which consist of marls interbedded with fine-grained limestones and were likely deposited below storm wave base (Figure \ref{column}). Fossils are present but not abundant \citep{Calner2004a,Samtleben1996}. The contact between Lower and Upper Visby beds is marked by a bed with a dense population of \textit{Phaulactis}, a species of solitary rugose coral \citep{Jeppsson1997,Jeppsson2006,Munnecke2003,Samtleben1996}. This contact is just above the Llandovery-Wenlock boundary, based on conodont stratigraphy \citep{Aldridge1993,Jeppsson1983,Mabillard1985}. During sampling, we defined this contact as a stratigraphic height of zero (Figure \ref{column}). In addition to the bed of abundant \textit{Phaulactis} corals, the contact between Lower and Upper Visby Beds is also marked by a facies change that represents a maximum flooding surface \citep{Calner2004b}. Carbonate content increases in the Upper Visby Beds, with a decreasing frequency of marl beds and the appearance of detritic limestones and reef mounds. Ripple marks indicate deposition above storm wave base. Fossils are abundant in the Upper Visby Beds \citep{Calner2004a,Samtleben1996}. 
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=140mm]{Fig_02-01.png}
+\caption{Lithology and isotope stratigraphy of the sampled sequence. On the left, the stratigraphic column shows the generalized lithostratigraphic units that were sampled for this study. On the right are the carbon and oxygen isotopic compositions of apparently well-preserved brachiopods, collected from the same section in Gotland by \cite{Bickert1997}. Figure modified from \cite{Bickert1997}.}
+\label{column}
+\end{figure*}
 
 Above the Upper Visby Beds, the H\"{o}gklint Formation consists of algal and crinoidal limestones with some reef mounds, deposited above storm wave base \citep{Riding1991,Samtleben1996,Watts2000}. The contact between the H\"{o}gklint Formation and the overlying Tofta Formation represents a hypothesized sequence boundary \citep{Calner2004b}. The Tofta Formation consists of oncoid-rich bedded limestone, and likely represents a shallow restricted setting, such as a backreef lagoon \citep{Riding1991,Samtleben1996}. The overlying Hangvar Formation consists of interbedded marls and limestones with some reef mounds, indicating deposition in a less restricted, deeper-water setting. The youngest strata sampled for this study were from the Slite Formation, which transitions from limestone-rich to marl-rich interbedded limestones and marls, likely representing deposition in deeper water. Fossils are present throughout the section \citep{Calner2004a}. 
 
@@ -123,6 +144,13 @@ $\Delta_{47-\text{RF-AC}}$ values were converted to temperature using the \cite{
 
 The \deltac C values of fossil material, micrite and cement are highly consistent within beds (Figure \ref{section}). We resolve a 3$\permil$ positive excursion in \deltac C, beginning just below the boundary between the Lower and Upper Visby Beds, and continuing for at least 50 meters. The sample set does not capture the relaxation of this excursion, but samples from the Slite Formation, beginning at 76 meters, record a return to lower \deltac C$_{\text{PDB}}$ values of approximately -0.5$\permil$. The \deltac C trend through the section is comparable to the brachiopod \deltac C measurements from \cite{Bickert1997} and \cite{Munnecke2003}. 
 
+\begin{figure*}[b]
+\centering
+\includegraphics[width=\textwidth]{Fig_03_color-01.png}
+\caption{The \deltac C, \deltao O and clumped isotope temperature of all the samples analyzed in this study, plotted against stratigraphic height. For the Lower \& Upper Visby and H\"{o}gklint Formations, a height of zero meters is defined by the contact between the Lower Visby Beds and the Upper Visby Beds. For the Slite Formation, a height of zero meters is defined as an arbitrary bed near the base of the outcrop. Brachiopod $\delta^{13}$C and $\delta^{18}$O measurements from \cite{Munnecke2003} are also included. Error bars represent the standard error of the mean.}
+\label{section}
+\end{figure*}
+
 The \deltao O values of fossil material are consistent within beds, but micrite and cements tend to have lower \deltao O values than fossil material, often several permil lower than fossils in the same bed (Figure \ref{section}). We are not able to resolve an excursion in \deltao O, although this may simply be because our dataset contains fewer samples than that of \cite{Munnecke2003}. The average \deltao O$_{\text{PDB}}$ of the fossils remains fairly constant at -5.5$\permil$ through the Lower and Upper Visby Beds, making our Lower Visby samples consistent with those of \cite{Munnecke2003} but our Upper Visby samples more depleted in $^{18}$O. Higher in the section, the \deltao O of the fossils in this study appear consistent with values reported by \cite{Bickert1997}. 
 
 The clumped isotope temperature of samples is highly variable within beds, often covering a range of 10\degrees C within a single bed (Figure \ref{section}). The lowest temperature sample, a brachiopod, and the highest temperature sample, a rugose coral, are both from the Slite Formation, deposited well after the hypothesized climate phenomenon associated with the isotopic excursions in the Lower and Upper Visby Beds. Due to the scatter in temperature, we are not able to resolve a change in temperature with time. 
@@ -133,15 +161,50 @@ The large scatter in temperatures suggests variable preservation quality among t
 
 Bulk trace metal measurements, which have been widely used as indicators of diagenetic alteration, suggest that all the brachiopods in this study are pristine. The bulk Mn and Sr concentrations of all brachiopods fall within previously defined limits for the Mn and Sr concentrations of pristine brachiopods (Figure \ref{Brand}). However, micro-scale studies of calcite fabrics, as well as clumped isotope measurements, demonstrate that there is a range in preservation quality among the brachiopods that cannot be identified on the basis of trace metal measurements alone. We first explore possible reasons for the insensitivity of trace metal concentrations to preservation quality. Then we consider EBSD and SEM evidence for the inclusion of diagenetic material in the typical fossil sample. Finally, we explore the use of clumped isotopes to distinguish the best-preserved samples from among those that would ordinarily all be identified as pristine based on their trace metal contents.  
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=90mm]{Fig_04_color-01.png}
+\caption{Bulk manganese and strontium concentrations of the brachiopods, rugose corals, micrites and cements in this study. The brachiopods in this study have less Mn and more Sr than most of the brachiopods analyzed by \cite{Brand2012} which are also shown in this figure. Lines represent estimates by different authors of the range of pristine concentrations defined for brachiopods. Rugose corals generally have more Fe (not shown), more Mn and less Sr than brachiopods, giving them more altered trace metal signatures, while cements and micrites tend to have the most highly altered trace metal signatures. Figure modified from \cite{Brand2012}.}
+\label{Brand}
+\end{figure}
+
 There are several possible explanations for the relative insensitivity of trace metal concentrations to diagenetic alteration. Our sample set may not include a sufficient number of highly altered samples to capture the full range in severity of alteration. This hypothesis is supported by a conspicuous lack of statistically robust correlations between trace metal composition and temperature (Figure \ref{metals}). We tested brachiopods and rugose corals separately and combined with micrites and cements for the robustness of a linear correlation between trace metal concentrations and temperature, as well as the log of trace metal concentrations and temperature. We performed a hypothesis test on each pair of variables to test the probability (p) that the observed correlation is due to random variation when the true correlation is zero. Only one pair of variables, the Sr concentration and temperature of rugose corals, has a p value of less than 0.05, meaning we can be 95\% confident that the correlation is real. While these tests suggest that the scatter in trace metal concentrations is a large cause of their insensitivity to diagenetic alteration, there is also the possibility that early void-filling cements, which would have cool temperatures but altered trace metal concentrations, interfere with the signal. 
 
+\begin{figure*}[tb]
+\centering
+\includegraphics[width=\textwidth]{Fig_05_color-01.png}
+\caption{Scatter plots showing the relationship between temperature and bulk trace metal concentrations. The negative correlation between temperature and the log of Sr concentration in rugose corals is statistically robust, and holds up when combined with the rest of the samples, but no other correlations passed our hypothesis tests. These plots demonstrate clear differences in trace metal content between the two fossil taxa and the later carbonate phases. Brachiopods tend to have the most pristine trace metal signatures, with less Mn and more Sr than the other samples. Micrites and cements tend to have the most altered trace metal signatures, with high Fe and Mn and low Sr concentrations. }
+\label{metals}
+\end{figure*}
+
 E-probe analysis suggests a more compelling reason for the insensitivity of trace metal concentrations: diagenetic recrystallization may not actually have any effect on Fe and Mn concentrations. A recrystallized region of a rugose coral septum is clearly visible as a dark area in reflected light (Figure \ref{EBSD_coral}A) and an area of aligned calcite crystals in an electron backscatter diffraction (EBSD) image (Figure \ref{EBSD_coral}B). However, the Fe and Mn concentrations of the recrystallized region are indistinguishable from those of the pristine coral skeleton (Figure \ref{EBSD_coral}C \& D). This is only one example, but it suggests that recrystallization may not affect trace metal concentrations, and instead, variations in trace metal concentrations may be dominated by contamination from cements and sediments. If recrystallization is an important contributor to the elevated temperatures of fossil material, trace metals may not be expected to be reliable indicators of diagenetic alteration.
+
+\begin{figure*}[tb]
+\centering
+\includegraphics[width=140mm]{Fig_06_color-01.png}
+\caption{Calcite fabric and trace metal concentrations in a rugose coral. The four images show the same area of a rugose coral thin section, all at the same magnification. The black bar at the bottom of panel B is 500 $\mu$m long for scale. A) Transmitted light. The dark triangle labelled ``RC'' was identified as a recrystallized domain of the coral septum. Cement in the void space between coral septa appears as blocky calcite crystals. B) Electron backscatter diffraction (EBSD) analysis. The orientation of calcite crystals is indicated by different shades. The recrystallized domain is clearly marked by many calcite crystals with the same orientation. C) Iron and D) manganese concentrations measured using the E-probe. The maps are qualitative, with darker shades representing higher concentrations. For both metals, the recrystallized domain is indistinguishable from the rest of the septum. The black lines show the location of an array of 62 spots where trace metal concentrations were measured quantitatively. The concentration of Fe and Mn at these spots is plotted to the right of the respective map.}
+\label{EBSD_coral}
+\end{figure*}
 
 We therefore turn to micro-scale studies of calcite textures as indicators of diagenetic alteration. Reflected-light and EBSD images of rugose corals reveal substantial amounts of late-phase diagenetic calcite, including cements and recrystallized regions (Figure \ref{EBSD_coral}A \& B). As discussed above, recrystallized regions are visible as dark colors in reflected light and aligned calcite crystals in EBSD images. Cements in Figure \ref{EBSD_coral}A \& B are characterized by large, subequant, interlocking calcite crystals. The fraction of late-phase calcite in the rugose coral samples may have been lower than suggested by the thin section in Figure \ref{EBSD_coral}, because samples were taken from the apical end of the corals where the void space between the septa was smaller, but sample preparation probably included some late-phase calcite along with pristine coral skeletal material. 
 
 In contrast to rugose corals, the EBSD image of a low-temperature brachiopod thin section demonstrates excellent preservation of original fibrous calcite textures (Figure \ref{EBSD_brach}A). Within the brachiopod shell, calcite crystals are elongated approximately parallel to the surface of the shell, as expected for the fibrous secondary layer. This preferential orientation is represented by the vertical band in the stereographic projection of crystallographic planes (Figure \ref{EBSD_brach}B). No regions of recrystallization are visible within the shell. There are large interlocking cement crystals in the upper left hand corner of the EBSD image, but these formed in the void space between the two valves, and would not have been included in the sample for clumped isotope analysis. Based on visual inspection of the EBSD image of this brachiopod's secondary fibrous layer, we suggest that this layer contains a maximum of 5\% recrystallized material. 
 
+\begin{figure*}[tb]
+\centering
+\includegraphics[width=\textwidth]{Fig_07_color-01.png}
+\caption{Calcite fabric in a brachiopod. A) Transmitted polarized light image of a thin section of brachiopod G3 LVF B1. This sample has a clumped isotope temperature of 35\degrees C. The boxed overlay is an electron backscatter diffraction (EBSD) image of the same sample. The orientation of calcite crystals is indicated by different shades. B) Euler pole figure generated from the EBSD analysis. The central band represents the preferential orientation of calcite crystals parallel to the outer surface of the brachiopod shell.}
+\label{EBSD_brach}
+\end{figure*}
+
 Scanning electron microscope (SEM) images of low-temperature brachiopod flakes also demonstrate excellent preservation of original fibrous calcite textures (Figure \ref{flakes}A, B \& C). The original fibrous texture clearly contrasts with the rough recrystallized texture covering part of a flake that would not have been chosen for analysis (Figure \ref{flakes}D). The difference between these two textures is visible under the microscope used for picking brachiopod flakes, so flakes with large recrystallized regions were easily identified and excluded from the sample. However, small recrystallized regions, especially if they occurred between layers of fibrous texture, may not have been identified during picking. Therefore, although the representative flakes chosen for inspection with the SEM appear pristine, this does not guarantee that all recrystallized material was excluded from the samples.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=90mm]{Fig_08-01.png}
+\caption{Scanning electron microscope images of flakes of brachiopod shell. Images were taken in secondary electron mode. Panels A--C show flakes that were judged to be pristine and are representative of the material used for analysis. Panel D shows a flake that was judged to be partially recrystallized and would not have been chosen for analysis. Clumped isotope temperatures of the samples for which representative flakes are shown are: A) 35 $\pm$ 2\degrees C; B) 33 $\pm$ 2\degrees C; C) 35 $\pm$ 1\degrees C.}
+\label{flakes}
+\end{figure}
 
 The micro-scale studies of calcite textures in Figures \ref{EBSD_coral}--\ref{flakes} reveal relatively well-preserved samples, but do not rule out the inclusion of small amounts of late-phase calcite. Variable fractions of late-phase calcite likely contribute to the range in temperature among fossil samples. We only performed SEM and EBSD analysis on a small subset of samples, so we will not attempt to use this evidence to compare the relative preservation quality of low and high-temperature samples. An important conclusion that can be drawn from our micro-scale studies is that the low temperature brachiopods imaged in Figures \ref{EBSD_brach} and \ref{flakes} probably contain only trace amounts of late-phase calcite, likely less than 5\% of the sample. We therefore look to these samples as the most reliable records of ocean temperature and \deltao O during the Silurian. 
 
@@ -149,9 +212,23 @@ The micro-scale studies of calcite textures in Figures \ref{EBSD_coral}--\ref{fl
 
 To estimate the temperature and \deltao O of Silurian oceans, we first need to confirm the hypothesis that the lowest-temperature samples are the most pristine and therefore preserve the most reliable record of Silurian ocean conditions. This hypothesis can be tested through constraints on the diagenetic regime to which the samples were subjected. As outlined above, different diagenetic regimes have characteristic effects on the relationship between temperature and the \deltao O of interstitial water. When the clumped isotope temperatures of the samples in this study are plotted versus the \deltao O of water calculated for each sample, there is a clear positive relationship (Figure \ref{ellipses}). This relationship suggests that interstitial water grew increasingly enriched in $^{18}$O as the temperature increased, which is diagnostic of rock-buffered diagenesis. Importantly, during rock-buffered diagenesis, more altered samples have higher temperatures, which is consistent with our hypothesis that the lowest temperature samples are the most pristine.
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=90mm]{Fig_09-01.png}
+\caption{The clumped isotope temperature and calculated water \deltao O$_{\text{VSMOW}}$ for all samples analyzed in this study. Error ellipses represent one standard deviation of the mean of all measurement acquisitions for each sample.}
+\label{ellipses}
+\end{figure}
+
 Solid-state diffusion is commonly considered as a possible mechanism for the increase of clumped isotope temperatures during diagenesis, but we rule it out as a major contributor to our results. During solid-state diffusion, isotopes of carbon and oxygen diffuse through the calcite mineral lattice, which decreases the degree of clumping and increases the interpreted temperature of the calcite. This process does not affect the bulk isotopic composition of the calcite, and it occurs without dissolution and reprecipitation, which means it is also not expected to change the calcite fabric or trace metal content \citep{Eiler2011}. However, solid-state diffusion is expected to affect all calcite approximately equally, which means that this process cannot explain the observed variability in temperature among the samples. Additionally, solid-state diffusion is thought to occur very slowly at temperatures below 100\degrees C (D. Stolper personal communication 2013), which is the maximum temperature experienced by Gotland strata, as constrained by the conodont alteration index \citep{Jeppsson1983,Wenzel2000}. Solid-state diffusion is not consistent with our observations, leaving rock-buffered diagenesis as the most likely characterization of the diagenetic regime.
 
 The hypothesis that the samples underwent rock-buffered diagenesis is further supported by comparisons of the clumped isotope temperature of different calcite textures. We measured the clumped isotope composition of the micrite adjecent to four brachiopods, and in all four cases, the temperature of the micrite was resolvably higher than the temperature of the brachiopod (Figure \ref{comparisons}). Micrite is expected to be less pristine than the brachiopod samples because micrite is fine-grained, not protected by a layer of brachiopod shell, and was not picked under a microscope prior to analysis. Because the less pristine material, micrite, was associated with higher temperatures, these comparisons are consistent with the hypothesis that the lowest temperature samples are the most pristine.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=90mm]{Fig_10-01.png}
+\caption{Comparisons between the \deltac C, \deltao O and clumped isotope temperature of brachiopod samples and adjacent micrite.}
+\label{comparisons}
+\end{figure}
 
 The lowest-temperature, most pristine sample in this study, a brachiopod, indicates that tropical Silurian oceans had a temperature of $30\pm 2$\degrees C and a \deltao O$_{\text{SMOW}}$ of $-1.7\pm 0.5\permil$ (Figure \ref{ellipses}), where the error estimates represent the standard error of the mean over eight acquisitions. The two next-most pristine samples, also brachiopods, have temperatures of $33\pm 2$\degrees C and $35\pm 2$\degrees C, which correspond to seawater \deltao O$_{\text{SMOW}}$ values of $-1.5\pm 0.3\permil$ and $-1.9\pm 0.4\permil$, respectively. One caveat of these values is that they are each based on only one measurement due to sample-size limitations. The lowest-temperature brachiopod was picked a second time, but to collect enough material for analysis, some less pristine flakes had to be included, which may explain the $41\pm 4$\degrees C temperature of this re-sample (G13 10.5 to 10.8 B1 leftovers). However, we argue that the differences between the temperatures and \deltao O values implied by the three most pristine samples are small enough that they essentially represent the same warm, tropical Silurian ocean water. 
 
@@ -161,11 +238,18 @@ Our clumped isotope measurements indicate that Silurian tropical oceans were sim
 
 The results of this study are also consistent with those of earlier clumped isotope studies. \cite{Came2007} and \cite{Finnegan2011} both measured the clumped isotope compositions of brachiopods from the Early Silurian on Anticosti Island, Canada. These two studies report temperatures of 30 to 35\degrees C and seawater \deltao O$_{\text{SMOW}}$ values of around $-1\permil$, which are similar to the results of this study. Importantly, Anticosti Island recorded deposition on the eastern margin of the Panthalassic Ocean during the Silurian, while Gotland recorded deposition in the Rheic Ocean, which was separated from the Panthalassic Ocean by a mountain range. The strong similarity in temperatures and \deltao O between the two studies indicates that both studies likely reflect water that is representative of the global ocean, rather than an isolated inland sea. 
 
-Our results, along with those of previous clumped isotope studies \citep{Came2007,Dennis2013,Finnegan2011}, provide consistent explanations for the low \deltao O values of early Paleozoic carbonates (Figure \ref{Veizer}). Carbonate clumped isotopes constrain the contribution of a change in seawater \deltao O to only a few permil of the observed trend, ruling out a value of $-8\permil$ for the \deltao O$_{\text{SMOW}}$ of early Paleozoic oceans \citep{Grossman2012}. Our results also serve as a reminder that many of the fossils preserved in the geologic record lived in tropical oceans. The \deltao O of carbonate in equilibrium with tropical ocean water should not be compared to the \deltao O of carbonate in equilibrium with water of average modern sea surface temperature, because tropical oceans are much warmer than the average sea surface temperature. Clumped isotopes additionally demonstrate that extremely hot ($>50$\degrees C) ocean temperatures cannot be the cause of the depleted \deltao O values of early Paleozoic carbonates. Finally, clumped isotopes, as a highly sensitive indicator of diagenetic alteration, demonstrate that even among samples with original calcite fabric and pristine trace metal signatures, there is a large range in preservation quality. This means that the average fossil calcite in almost any sample suite is likely altered from its primary composition, and that diagenetic alteration is a key contributor to the low \deltao O values of early Paleozoic carbonates. 
+Our results, along with those of previous clumped isotope studies \citep{Came2007,Dennis2013,Finnegan2011}, provide consistent explanations for the low \deltao O values of early Paleozoic carbonates (Figure \ref{Veizer}). Carbonate clumped isotopes constrain the contribution of a change in seawater \deltao O to only a few permil of the observed trend, ruling out a value of $-8\permil$ for the \deltao O$_{\text{SMOW}}$ of early Paleozoic oceans. Our results also serve as a reminder that many of the fossils preserved in the geologic record lived in tropical oceans. The \deltao O of carbonate in equilibrium with tropical ocean water should not be compared to the \deltao O of carbonate in equilibrium with water of average modern sea surface temperature, because tropical oceans are much warmer than the average sea surface temperature. Clumped isotopes additionally demonstrate that extremely hot ($>50$\degrees C) ocean temperatures cannot be the cause of the depleted \deltao O values of early Paleozoic carbonates. Finally, clumped isotopes, as a highly sensitive indicator of diagenetic alteration, demonstrate that even among samples with original calcite fabric and pristine trace metal signatures, there is a large range in preservation quality. This means that the average fossil calcite in almost any sample suite is likely altered from its primary composition, and that diagenetic alteration is a key contributor to the low \deltao O values of early Paleozoic carbonates. 
 
 Due in large part to diagenetic alteration, our results are unable to resolve a change in temperature or the \deltao O of the oceans through the Ireviken event. The consistent scatter in fossil temperatures throughout the section likely rules out any large changes in temperature or \deltao O of the oceans, but this scatter prevents resolution of any smaller changes. Temperatures of 30\degrees C in tropical oceans are similar to those of modern tropical oceans, and therefore are not incompatible with the presence of polar ice sheets, as suggested by Early Silurian age tillites in Brazil \citep{Grahn1992}.
 
-The results from this study join those of previous clumped isotope studies in implying that the \deltao O$_{\text{SMOW}}$ of seawater has been fairly constant throughout the Phanerozoic, at around $-1\permil$. Several studies have suggested that high-temperature alteration of the seafloor acts as a buffer for the \deltao O of seawater \citep{Muehlenbachs1976,Gregory1981,Gregory1991,Muehlenbachs1998}, but a more recent model implied that this buffer may not be strong enough to overcome slow changes in the \deltao O of seawater \citep{Jaffres2007}. If this buffer cannot explain the relative constancy of seawater \deltao O values through time, then the two competing controls on seawater \deltao O, alteration of rocks at high and low temperatures, must have remained in balance over the last 500 million years. This suggests that the magnitudes of high-temperature hydrothermal alteration and low-temperature weathering have not changed substantially, or that any changes in the magnitude of one process are tied through an as-yet unidentified feedback loop to balancing changes in the other. 
+The results from this study join those of previous clumped isotope studies in implying that the \deltao O$_{\text{SMOW}}$ of seawater has been fairly constant throughout the Phanerozoic, at around $-1\permil$ (Figure \ref{Veizer}). Several studies have suggested that high-temperature alteration of the seafloor acts as a buffer for the \deltao O of seawater \citep{Muehlenbachs1976,Gregory1981,Gregory1991,Muehlenbachs1998}, but a more recent model implied that this buffer may not be strong enough to overcome slow changes in the \deltao O of seawater \citep{Jaffres2007}. If this buffer cannot explain the relative constancy of seawater \deltao O values through time, then the two competing controls on seawater \deltao O, alteration of rocks at high and low temperatures, must have remained in balance over the last 500 million years. This suggests that the magnitudes of high-temperature hydrothermal alteration and low-temperature weathering have not changed substantially, or that any changes in the magnitude of one process are tied through an as-yet unidentified feedback loop to balancing changes in the other. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=90mm]{Fig_11-01.png}
+\caption{Implications for the constancy of seawater $\delta^{18}$O through time. In gray, the \deltao O$_{\text{VPDB}}$ of apparently well-preserved skeletal calcites, compiled by \cite{Veizer1999}. The black solid line represents the estimated \deltao O$_{\text{VSMOW}}$ of the oceans through time based on the calcite values. The two black dashed lines represent alternative hypotheses for the value of seawater \deltao O$_{\text{VSMOW}}$ through time. All three lines ignore short-term perturbations  to seawater $\delta^{18}$O caused by glaciations. Finally, the black shapes are estimates of seawater \deltao O from clumped isotopes, measured at four different times by three separate studies. These clumped isotope estimates suggest that seawater \deltao O has not changed by more than 2$\permil$ in the last 430 million years.}
+\label{Veizer}
+\end{figure}
 
 \section{Conclusions}
 
@@ -175,87 +259,10 @@ We used clumped isotopes to constrain the temperature and \deltao O of Silurian 
 
 We acknowledge Nami Kitchen, Kristin Bergmann, Daniel Stolper, and the rest of the Eiler lab for help with the clumped isotope measurements. We thank Chi Ma for his assistance with the SEM and the E-probe, and Joel Hurowitz for allowing us to use his ICP-AES. We also thank Mark Garcia and David Mann for their help with sample processing. This work was supported by NSF grant EAR-1053523 and the Agouron Institute. 
 
-\newpage
+\nocite{*}
 
 \section*{References}
-\bibliographystyle{my-harv}
+\bibliographystyle{my-geochim}
 \bibliography{draft}
-
-\begin{figure}[p]
-\centering
-\includegraphics[width=0.5\textwidth]{Fig_map.pdf}
-\caption{Geologic map of the northern half of the island of Gotland, Sweden, modified from \cite{Calner2004a}. Approximate sample locations are marked by colored circles. Numbering corresponds to the sample location in Table \ref{results}.}
-\label{map}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.9\textwidth]{Fig_column-01.jpg}
-\caption{On the left, a stratigraphic column showing the generalized lithstratigraphic units that were sampled for this study. On the right are the carbon and oxygen isotopic compositions of apparently well-preserved brachiopods, collected from the same section in Gotland. Isotopic compositions of brachiopods are modified from \cite{Bickert1997}.}
-\label{column}
-\end{figure}
-
-\begin{sidewaysfigure}[htb]
-\centering
-\includegraphics[width=\textwidth]{Fig_section-01.jpg}
-\caption{The \deltac C, \deltao O and $\Delta_{47}$ temperature of all the samples analyzed in this study, plotted against stratigraphic height. A height of zero meters is defined by the contact between the Lower Visby Beds and the Upper Visby Beds. Also included are data from Munnecke et al. (2003).}
-\label{section}
-\end{sidewaysfigure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{Fig_Brand-01.jpg}
-\caption{Bulk manganese and strontium concentrations of the brachiopods, rugose corals, micrites and cements in this study. The brachiopods in this study have less Mn and more Sr than most of the brachiopods analyzed by Brand et al. (2012), which are also shown in this figure. Lines represent estimates by different authors of the range of pristine concentrations defined for brachiopods. Rugose corals generally have more Fe (not shown), more Mn and less Sr than brachiopods, giving them more altered trace metal signatures, while cements and micrites tend to have the most highly altered trace metal signatures.}
-\label{Brand}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{Fig_metals-01.jpg}
-\caption{Scatter plots showing the relationship between temperature and bulk trace metal concentration. The only statistically robust correlation ($\text{p}<0.05$ compared to zero correlation) is that between temperature and Sr concentration of rugose corals.}
-\label{metals}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.8\textwidth]{Fig_EBSD_coral-01.jpg}
-\caption{Four different images of the same area of a rugose coral thin section, all at the same magnification. A) Reflected light. The line of dark pits are damaged caused by the E-probe electron beam. The dark triangle labelled ``RC'' was identified as a recrystallized domain of the coal septum. B) EBSD analysis. The recrystallized domain is clearly marked by many calcite crystals with the same orientation. The black scale bar represents 500 $\mu$m. C) Iron and D) manganese concentrations measured using the E-probe. The maps are qualitative, with warmer colors representing higher concentrations. The overlaid spots were measured quantitatively, and are labeled in units of ppm. For both metals, the recrystallized domain is indistinguishable from the rest of the septum.}
-\label{EBSD_coral}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{Fig_EBSD_brach-01.jpg}
-\caption{A) Transmitted polarized light image of a thin section of a brachiopod with $\Delta_{47}$ temperature 34\degrees C. The color overlay is an electron backscatter diffraction image of the same sample. The orientation of calcite crystals is indicated by color. B) Euler pole figure generated from the EBSD analysis.}
-\label{EBSD_brach}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=\textwidth]{Fig_flakes-01.jpg}
-\caption{Scanning electron microscope images of flakes of brachiopod shell. Images were taken in secondary electron mode. Panels A--C show flakes that were judged to be pristine and are representative of the material used for analysis. Panel D shows a flake that was judged to be partially recrystallized and would not have been chosen for analysis. Clumped isotope temperatures of the samples for which representative flakes are shown are: A) 34 $\pm$ 2\degrees C; B) 35 $\pm$ 3\degrees C; C) 35 $\pm$ 3\degrees C.}
-\label{flakes}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.7\textwidth]{Fig_ellipses-01.jpg}
-\caption{The $\Delta_{47}$ temperature and calculated water \deltao O for all samples analyzed in this study. Error ellipses represent one standard deviation of the mean of all measurement acquisitions for each sample.}
-\label{ellipses}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.5\textwidth]{Fig_comparisons-01.jpg}
-\caption{Comparisons between the \deltac C, \deltao O and $\Delta_{47}$ temperature of brachiopod samples and adjacent micrite.}
-\label{comparisons}
-\end{figure}
-
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.6\textwidth]{Fig_veizer-01.jpg}
-\caption{In gray, the \deltao O$_{\text{PDB}}$ of apparently well-preserved skeletal calcites, compiled by \cite{Veizer1999}. In black are two different hypotheses for the trend in the \deltao O$_{\text{SMOW}}$ of the oceans through time.}
-\label{Veizer}
-\end{figure}
 
 \end{document}
