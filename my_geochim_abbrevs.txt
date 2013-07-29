@@ -1,0 +1,79 @@
+Geochimica et Cosmochimica Acta
+Geochim. Cosmochim. Acta
+
+Geologiska Foereningan i Stockholm. Foerhandlingar
+GFF
+Geol. Foeren. Stockholm Foerh.
+
+Erlanger geologische Abhandlungen
+Erlanger Geol. Abh.
+
+Geological Society of America Bulletin
+Geol. Soc. Am. Bull.
+
+Quaternary Science Reviews
+Quat. Sci. Rev.
+
+Chemical Geology
+Chem. Geol.
+
+European journal of mineralogy
+Eur. J. Mineral.
+
+Geophysical Monograph Series
+Geophys. Monogr. Ser.
+
+Palaeogeography, Palaeoclimatology, Palaeoecology
+Palaeogeogr. Palaeoclimatol. Palaeoecol.
+
+Bulletin de la Soci{\'e}t{\'e} g{\'e}ologique de France
+Bull. Soc. Geol. Fr.
+
+@incollection{Gregory1991,
+author = {Gregory, R T},
+title = {{Oxygen isotope history of seawater revisited: Timescales for boundary event changes in the oxygen isotope composition of seawater}},
+booktitle = {Stable Isotope Geochemistry: A Tribute to Samuel Epstein},
+editor = {Taylor, H P and O'Neil J R and Kaplan I R},
+year = {1991},
+pages = {65--76}
+}
+
+Journal of the Chemical Society
+J. Chem. Soc.
+
+Journal of Sedimentary Research
+J. Sediment. Res.
+
+Earth-Sci Rev
+Earth Sci. Rev.
+
+TRANSACTIONS-ROYAL SOCIETY OF EDINBURGH
+Trans. R. Soc. Edinburgh: Earth Sci.
+
+AAPG Bulletin
+AAPG Bull.
+
+Journal of climate
+J. Clim.
+
+Fossils and Strata
+Fossils Strata
+
+Geologische Rundschau
+Geol. Rundsch.
+
+Initial Reports of the Deep Sea Drilling Project
+Init. Rep. Deep Sea Drill. Proj.
+
+Journal of Geophysical Research: Atmospheres (1984--2012)
+J. Geophys. Res. D: Atmos.
+
+Journal of Geophysical Research
+J. Geophys. Res.
+
+Earth and Planetary Science Letters
+Earth Planet. Sci. Lett.
+
+Journal of the Geological Society
+J. Geol. Soc. London
+
