@@ -365,7 +365,7 @@ FUNCTION {format.names}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{vv~}{ll}{ jj.,}{ f{. }.}" % added a space after f{. and added ., after jj
+      "{vv~}{ll}{, jj.,}{ f{. }.}" % added a space after f{. and added ., after jj and , before jj
       format.name$
       bibinfo bibinfo.check
       't :=
@@ -409,7 +409,7 @@ FUNCTION {format.names.ed}
   numnames 'namesleft :=
     { namesleft #0 > }
     { s nameptr
-      "{f{. }.~}{vv~}{ll}{ jj.}"  % added a space after f{. and added . after jj
+      "{f{. }.~}{vv~}{ll}{, jj.}"  % added a space after f{. and added . after jj and , before jj
       format.name$
       bibinfo bibinfo.check
       't :=
