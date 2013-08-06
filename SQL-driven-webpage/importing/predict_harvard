@@ -1,0 +1,149 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* predict
+*
+* Renata Cummins
+* Final Project
+*
+* Finds the slope and intercept of the linear equation that can be used
+* to predict the time for the course and meets specified in the constants 
+* at the beginning of the code (the Y meets) from the time run in the race 
+* corresponding to the race_date_num entered in the command line (the X
+* meet). 
+**********************************************************************/
+
+// Y course ID and Y meets to predict
+define("Y_CID", 15);
+define("Y_MEET1", 'Heps');
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// empty TimeArray table
+$query = sprintf("DELETE FROM TimeArray");
+mysql_query($query);
+
+// grab race_date_num from command line
+$raceX = $argv[1];
+
+// find corresponding X meet and cid for race_date_num in Courses table
+$query2 = sprintf("SELECT cid, meet FROM Courses WHERE race_date_num=%d"
+                   ,$raceX);
+$result2 = mysql_query($query2);
+$row2 = mysql_fetch_array($result2);
+
+// prepare sql to grab time, id, year for X meet from ResultsNameHarvard table
+$queryX = sprintf("SELECT time, id, year FROM ResultsNameHarvard
+                  WHERE cid=%d AND meet='%s'"
+                  ,$row2["cid"],$row2["meet"]);
+    
+// execute query to form X array
+$resultX = mysql_query($queryX);
+    
+// prepare sql to grab time, id, year for Y meets from ResultsNameHarvard table
+$queryY = sprintf("SELECT time, id, year FROM ResultsNameHarvard
+                  WHERE cid=%d AND meet='%s'"
+                  ,Y_CID,Y_MEET1);
+    
+// execute query to form Y array
+$resultY = mysql_query($queryY);
+    
+// grab first row from each array of time, id, year
+$rowX = mysql_fetch_array($resultX);
+$rowY = mysql_fetch_array($resultY);
+
+// repeat until the end of one of the arrays is reached
+while(1)
+{
+    // break out of loop if row returned is zero
+    if ($rowX == 0 || $rowY == 0)
+    {
+        break;
+    }
+    
+    // check if the years are equal
+    elseif ($rowX["year"] == $rowY["year"])
+    {
+        // check if the ids are equal
+        if ($rowX["id"] == $rowY["id"])
+        {  
+            // store the times in the time_arrays
+            $x_time_array[] = $rowX["time"];
+            $y_time_array[] = $rowY["time"];
+            
+            // grab next row from both arrays of time, id, year
+            $rowX = mysql_fetch_array($resultX);
+            $rowY = mysql_fetch_array($resultY);
+        }
+        
+        // if the id in the X array is lower, grab next row from X array
+        elseif ($rowX["id"] < $rowY["id"])
+        {
+            $rowX = mysql_fetch_array($resultX);
+        }
+        
+        // if the id in the Y array is lower, grab next row from Y array
+        elseif ($rowX["id"] > $rowY["id"])
+        {
+            $rowY = mysql_fetch_array($resultY);
+        }
+    }
+    
+    // if the year in the X array is lower, grab next row from X array
+    elseif ($rowX["year"] < $rowY["year"])
+    {
+        $rowX = mysql_fetch_array($resultX);
+    }
+    
+    // if the year in the Y array is lower, grab next row from Y array
+    elseif ($rowX["year"] > $rowY["year"])
+    {  
+        $rowY = mysql_fetch_array($resultY);
+    }
+}                  
+
+// find average x_time
+$x_avg = array_sum($x_time_array) / count($x_time_array);
+
+// find average y_time
+$y_avg = array_sum($y_time_array) / count($y_time_array);
+
+// set initial rs and ss values (r & s are terms in linear regression formula)
+$rs = 0;
+$ss = 0; 
+
+// Repeat until the end of the time arrays
+for ($i = 0; $i < count($x_time_array); $i++)
+{
+    // find s and r
+    $s = $x_time_array[$i] - $x_avg;
+    $r = $y_time_array[$i] - $y_avg;
+    
+    // update both sums of $rs and $ss
+    $rs = $rs + $r * $s;
+    $ss = $ss + $s * $s;
+}
+
+// Find slope and intercept of the best-fit line            
+$slope = $rs / $ss;
+$intercept = $y_avg - $slope * $x_avg;
+
+// store slope, intercept, X cid, X meet, Y cid, Y meet in PredictHarvard table
+$query7 = sprintf("INSERT INTO PredictHarvard 
+                   (slope, intercept, x_cid, x_meet, y_cid, y_meet1)
+                   VALUES (%f, %f, %d, '%s', %d, '%s')"
+                   ,$slope, $intercept
+                   ,$row2["cid"], $row2["meet"]
+                   ,Y_CID, Y_MEET1);
+mysql_query($query7);
+
+?>

@@ -1,0 +1,51 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* convert_time_secs_NameHarvard
+*
+* Renata Cummins
+* Final Project
+*
+* Uses the mins and secs columns in the ResultsNameHarvard table to add another
+* column called time, which is the number of seconds equivalent to the 
+* total number of seconds in the mins and secs columns together. 
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// prepare sql to grab mins, secs from ResultsNameHarvard table
+$query = sprintf("SELECT mins, secs FROM ResultsNameHarvard");
+    
+// execute query
+$result = mysql_query($query);
+    
+// repeat for all rows
+while( $row = mysql_fetch_array($result))
+{
+    
+    // get mins, secs from the row
+    $mins = $row["mins"];
+    $secs = $row["secs"];
+    
+    // convert to total number of seconds
+    $time = $mins*60 + $secs;
+
+    // prepare sql to update time column in ResultsNameHarvard table
+    $query2 = sprintf("UPDATE ResultsNameHarvard SET time=%f 
+                       WHERE mins=%d AND secs=%f",$time,$mins,$secs);
+                   
+    // execute query
+    mysql_query($query2);
+}
+
+?>

@@ -1,0 +1,128 @@
+TITLE
+
+    Harvard XC Tracker
+
+AUTHOR
+
+    Renata Cummins
+
+ABSTRACT
+
+    A website that searches for Harvard cross country results from the 
+gocrimson.com RSS news feed and then displays the results to logged-in users 
+in different formats that allow for comparison over a runner's career, season, 
+different races on the same course, and even races on different courses. 
+Runners will also be able to predict their times in future races based on 
+their previous performances. 
+
+WHAT
+
+    I plan to use PHP to grab meet results from the gocrimson.com RSS feed and 
+store them in text files in the folder called results. Then I will also use 
+PHP to parse these results and then use SQL to store them on the cloud 
+database, organized by runner name. I will use XHTML, CSS, and PHP to make 
+the website that will display these results. Some of the pages on the website
+will just display data directly from the database, while others will require 
+some additional calculations using the data. Most of these calculations will 
+be implemented directly in the PHP file for the page, but the calculation
+that converts a time on one course to a time on another course, which is also
+used to predict future times based on past performances, will be executed in
+a separate program, called convert.c, which will be written in C. 
+    All of the files for this website will be hosted on the cs50 cloud. My
+website's url will probably be cloud.cs50.net/~rcummins/HarvardXCTracker. 
+    The home page of the website will have a banner at the top of the page 
+with a picture from one of our cross country meets. The title, of the 
+website, Harvard XC Tracker, will be under the under the banner. The rest of 
+the page into two columns: 30% of the width is on the left, and the other 70% 
+of the width is on the right. In the column on the left, there will be a 
+crimson colored box that says "Login" on the top and has two fields for 
+username and password. Below the two fields there is a button called "Login", 
+which checks the entered fields against the database of registered users using 
+SQL. If the user has already registered and appears in the database, 
+this button will then direct the user to the page indiv_career_report.php 
+where runner name = the name connected with the entered username in the 
+database. Under the login button, there is a link "Or register for an account" 
+that takes the user to a different page, register.php. On the right side of
+the page, there will be some paragraphs of text that explain why I made this 
+website, what it allows you to do, and who I intend to use it. 
+    A new user would click on the register link on the home page, which would
+take him or her to the register page. This page, like all pages in the website,
+will have the banner with the picture from one of our meets across the top.
+Under the banner, there is a form for the user to fill out with fields for
+their first and last names, and their preferred username and password. 
+    Once the user is registered, or logged in during a subsequent visit to the
+site, they are directed to the indiv_career_report page, for which the runner 
+name is equal to the user's name. This page also has the banner at the top,
+and beneath the banner it says the runner's name. Beneath that, there is a
+table called "Personal Records". The headings of this table are: Course, 
+Distance, Time, Pace, Equivalent VCP 5k time, Date, Meet. The table will be 
+filled with information from all the fastest races that a runner has run on 
+every courses that she or he has even competed on. Underneath that table there
+will be another table called "Career History". The headings of this table are:
+Date, Meet, Course, Distance, Time, Pace, Equivalent VCP 5k time. This table 
+lists the information for every single race the runner has competed in during
+their college career. All of the table entries in the columns labeled "Course"
+in both of the tables on this page will be hyperlinks, which, when clicked, 
+direct the user to the career_course_report for that course. All of the table
+entries in the columns labeled "date" will be hyperlinks, which , when clicked,
+direct the user to the indiv_report for that meet. 
+    The career_course_report page will have the banner at the top, and the 
+title beneath the banner will be (the runner's name) at (the selected course).
+Below the title there will be a table that displays the info for all of the 
+races that the runner did on this particular course. The table's headers will 
+be: Date, Meet, Distance, Time, Pace, Equivalent VCP 5k time. All of the table
+entries in the date column will be hyperlinks, which, when clicked, direct the
+user to the indiv_report for that meet. 
+    The indiv_report page will also have the banner at the top, and the title
+below the banner will be: Harvard results from (meet) at (course) on (date).
+Below the title there will be a table that displays the results from the 
+Harvard runners that ran in that particular meet. The table's headers will be:
+Runner, Time, Pace, Distance, Place. 
+    All of the pages shown after logging in or registering will have the 
+title and table content in the right 80% of the page. In the left 20% of the
+page, there will be a box called "Make a Prediction!". In this box, there will
+be two fields, one that allows the user to choose which course they want to 
+have a predicted time for, and the other which allows the reader to choose one
+of the races during their career on which to base the prediction. This 
+box will refresh itself using ajax once the user selects the prediction 
+criteria, and display the predicted time. 
+    Users will have to login to access my software. The users will only be 
+members of the Harvard cross country team. The website will email me when a 
+new user registers and I will be able to remove them from the database of
+registered users if they are not a member of the Harvard cross country team. 
+    The website will be executed and controlled using mouse and keyboard input.
+
+ 
+WHY
+
+    Currently, it is very hard for Harvard Cross Country runners to make 
+comparisons between the different races they run throughout their season or
+career. This is because meet results are organized into a separate results 
+page for each meet, and the data is never displayed grouped together by 
+individual runner. Even if a runner does remember his or her times for each 
+course they have run, it is hard to know whether a race was better than a 
+previous race because the courses vary in distance and elevation gain. This is
+why the website will include the "Equivalent VCP 5k Time" next to each of the
+times the runner has run, because comparison is possible once every time has
+been converted to a standard course. The website will also provide predictions
+for future races based on the times run for previous races, using the same 
+technique that enabled the conversion between courses. 
+
+HOW
+
+I will make these files:
+
+grab_results.php
+parse_results.php
+index.php
+register.php
+indiv_career_report.php
+career_course_report.php
+indiv_report.php
+convert.c
+The convert.c file will use all the information stored in the database to 
+make a linear regression plot and then find the linear conversion between 
+times on different courses based on this data. So, I have decided not to 
+try to use elevation data to convert between courses, because it is too 
+complicated to try to figure out how elevation gain relates to the speed at 
+which runners run. 

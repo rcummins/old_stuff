@@ -1,0 +1,47 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* move_harvard
+*
+* Renata Cummins
+* Final Project
+*
+* Moves everyone who is from Harvard from the table Results to the table
+* ResultsNameHarvard.
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// prepare sql to grab race_date_num from Results table
+$query = sprintf("SELECT mins, secs, name, id, school, race_date_num, cid 
+                  FROM Results WHERE school='Harvard'");
+    
+// execute query
+$result = mysql_query($query);
+    
+// repeat for all rows
+while( $row = mysql_fetch_array($result))
+{
+    // prepare sql to insert row into ResultsNameHarvard
+        $query2 = sprintf("INSERT INTO ResultsNameHarvard 
+                           (mins, secs, name, id, school, race_date_num, cid)
+                           VALUES (%d, %f, '%s', %d, '%s', %d, %d)"
+                           , $row["mins"], $row["secs"], $row["name"]
+                           , $row["id"], $row["school"], $row["race_date_num"]
+                           , $row["cid"]);
+                       
+        // execute query
+        mysql_query($query2);
+}
+
+?>

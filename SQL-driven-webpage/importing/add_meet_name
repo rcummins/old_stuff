@@ -1,0 +1,42 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* add_meet_name
+*
+* Renata Cummins
+* Final Project
+*
+* Adds the meet to each row of the ResultsName table, by looking at the 
+* race_date_num and comparing it to the Courses table. 
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// prepare sql to grab name from next row of Courses table
+$query = sprintf("SELECT race_date_num, meet FROM Courses");
+    
+// execute query
+$result = mysql_query($query);
+
+// repeat for each row
+while ($row = mysql_fetch_array($result))
+{   
+    // prepare sql to insert cid into all rows with the same race_date_num
+    $query2 = sprintf("UPDATE ResultsName SET meet='%s' 
+              WHERE race_date_num=%d",$row["meet"],$row["race_date_num"]);
+                       
+    // execute query
+    mysql_query($query2);
+}
+
+?>

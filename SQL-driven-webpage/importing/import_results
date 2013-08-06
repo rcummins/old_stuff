@@ -1,0 +1,44 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* import_results
+*
+* Renata Cummins
+* Final Project
+*
+* Uses SQL to import the values from a csv file of cross country
+* results into the mysql database online. 
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// open the cross country results file
+$file = fopen("$argv[1]","r");
+
+// read each of the rest of the lines of the file
+while ($row = fgetcsv($file))
+{
+    // prepare sql to insert appropriate data into the Results table
+    $sql = sprintf("INSERT INTO Results 
+                    (place, mins, secs, name, class, school, race_date_num) 
+                    VALUES (%d, %d, %f, '%s', '%s', '%s', %d)"
+                    ,$row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6]);
+
+    // execute query
+    mysql_query($sql);
+}
+
+// close the cross country results file
+fclose($file);
+
+?>
