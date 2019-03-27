@@ -1,0 +1,46 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* add_year_NameHarvard
+*
+* Renata Cummins
+* Final Project
+*
+* Uses the race_date_num column in the ResultsNameHarvard table to add another
+* column called year, which is the first four digits of race_date_num.
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// prepare sql to grab race_date_num from Courses table
+$query = sprintf("SELECT race_date_num FROM Courses");
+    
+// execute query
+$result = mysql_query($query);
+    
+// repeat for all rows
+while( $row = mysql_fetch_array($result))
+{
+    
+    // grab the year out of race_date_num
+    $year = $row["race_date_num"]/100000;
+
+    // prepare sql to update year column in ResultsNameHarvard table
+    $query2 = sprintf("UPDATE ResultsNameHarvard SET year=%f 
+                       WHERE race_date_num=%d",$year,$row["race_date_num"]);
+                   
+    // execute query
+    mysql_query($query2);
+}
+
+?>

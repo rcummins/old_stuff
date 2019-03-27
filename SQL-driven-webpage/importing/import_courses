@@ -1,0 +1,57 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* import_courses
+*
+* Renata Cummins
+* Final Project
+*
+* Uses SQL to import the values from a csv file of cross country
+* courses information into the mysql database online. 
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// prepare sql to make Courses table
+$query = sprintf("CREATE TABLE Courses
+                  (race_date_num int(9),
+                   date date,
+                   course_name varchar(50),
+                   cid int(2),
+                   length int(5),
+                   event_name varchar(100),
+                   meet varchar(30))");
+
+// execute query
+mysql_query($query);
+                   
+// open the cross country courses information file
+$file = fopen("courses.csv","r");
+
+// read each of the rest of the lines of the file
+while ($row = fgetcsv($file))
+{
+    // prepare sql to insert appropriate data into the Results table
+    $sql = sprintf("INSERT INTO Courses
+              (race_date_num, date, course_name, cid, length, event_name, meet)
+              VALUES (%d, '%s', '%s', %d, %d, '%s', '%s')"
+              ,$row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6]);
+
+    // execute query
+    mysql_query($sql);
+}
+
+// close the cross country courses information file
+fclose($file);
+
+?>

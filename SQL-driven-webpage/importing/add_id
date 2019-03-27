@@ -1,0 +1,63 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* add_id
+*
+* Renata Cummins
+* Final Project
+*
+* Adds an incrementing numeric id number to each different name in the
+* Results table in the database. These numberic id numbers are needed
+* in the code that makes the predictions for time on a specified course
+* based on past meet results. 
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// first id
+$id = 1;
+
+// repeat until no more rows can be grabbed from the Results table
+while (1)
+{
+    // prepare sql to grab name from next row of Results table
+    $query = sprintf("SELECT name FROM Results WHERE id=0 LIMIT 1");
+    
+    // execute query
+    $result = mysql_query($query);
+    
+    // grab row
+    $row = mysql_fetch_array($result);
+    
+    // check for  empty row
+    if ($row == 0)
+        break;
+    
+    // get name from the row
+    $name = $row["name"];
+    
+    // prepare sql to insert id into all rows with the same name
+    $query2 = sprintf("UPDATE Results SET id=%d WHERE name='%s'",$id,$name);
+                       
+    // execute query
+    mysql_query($query2);
+    
+    // update $id
+    $id = $id + 1;
+    
+    // back-up check if id is too big
+    if ($id > 9999)
+        break;
+}
+
+?>

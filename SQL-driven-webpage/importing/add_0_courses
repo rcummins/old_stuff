@@ -1,0 +1,58 @@
+#!/usr/bin/php
+
+<?php
+
+/***********************************************************************
+* add_0_courses
+*
+* Renata Cummins
+* Final Project
+*
+* Fixes my mistake of making some of the race_year_num values 8 digits
+* and other 9 digits. I want to be able to display results in 
+* chronological order, which is the same as ordering the results by 
+* increasing value of race_year_num, except for the days when there are
+* two meets on the same day, and I added a "2" to the end of the 
+* race_year_num on those days, making the number bigger. I fixed this 
+* problem by writing this program, which adds a 0 onto all the 
+* race_year_num values that are 8 digits long. 
+**********************************************************************/
+
+
+// require constants
+require_once("/home/rcummins/public_html/fp/includes/constants.php");
+
+// connect to database server
+$connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS);
+
+// select database
+mysql_select_db(DB_NAME, $connection);
+
+// prepare sql to grab race_date_num from Courses table
+$query = sprintf("SELECT race_date_num FROM Courses");
+    
+// execute query
+$result = mysql_query($query);
+    
+// repeat for all rows
+while( $row = mysql_fetch_array($result))
+{
+    
+    // get race_date_num from the row
+    $num = $row["race_date_num"];
+    
+    if ($num < 100000000)
+    {
+        // update num
+        $n = $num*10;
+    
+        // prepare sql to add a 0 to the end of that race_date_num
+        $query2 = sprintf("UPDATE Courses SET race_date_num=%d 
+                           WHERE race_date_num=%d",$n,$num);
+                       
+        // execute query
+        mysql_query($query2);
+    }
+}
+
+?>
